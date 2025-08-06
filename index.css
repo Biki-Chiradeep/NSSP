@@ -5,25 +5,23 @@
 }
 :root {
     --bg-color: #e9e9e9;
-    --bg-color-rev: #cf824f80;
-    --bg-color-rev-intro: #cf824f49;
-    --text-color: #442c0c;
+    --bg-color-rev: 	#bbdf85c4;
+    --bg-color-rev-intro: #f5faeb5b;
+    --text-color: #1d1f1c;
     --text-color-rev: #472d1d;
     --accent-color: #a35413;
     --accent-color-s3: #fffefeea;
     --accent-color-s2: #ffc08d;
     --accent-color-s1: #f5ffbb;
-  }
-  
-html {
-    font-size: 100%; 
 }
-
+  
 body {
     color: var(--text-color);
     background-color: var(--bg-color);
     line-height: 1.6;
-    font-family: "Arial", sans-serif;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    text-shadow: #333 0.5px 0.5px 1px;
 }
 
 .nav-bar{    
@@ -31,9 +29,11 @@ body {
     flex-wrap: wrap;
     justify-content: center; 
     align-items: center;
+    position: fixed;
+    top: 0;
     width: 100%;
+    z-index: 999; 
     min-height: 8vh;
-    white-space: nowrap;
     background-color: rgba(255, 255, 255, 0.438);
     /* border-bottom: #2b2b2b 1px solid; */
     
@@ -53,22 +53,25 @@ body {
 } */
 .nav-links-continer{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around; 
     align-items: center;
     height:100%;
 }
 .nav-links{
-    padding: 0 2vw;
+    display: flex;
+    white-space: nowrap;
+    height: inherit;
 }
 .nav-links a{
+    display: flex;
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;     
+    color: var(--text-color); 
     transition: all 0.5s ease;
-
+    padding: 1.2vw 1.8vw;
 }
 .nav-links a:hover{
-    color: var(--accent-color-s3);
+    background-color: rgba(255, 255, 255, 0.938);
 }
 .nav-account-links-container{
     display: flex;
@@ -83,14 +86,13 @@ body {
     width: 8vw;
     min-width: 80px;
     border: #2b2b2b 1px solid;
-    box-shadow: 5px 5px 8px 0px #333;
-    font-weight: 600;    
+    box-shadow: 5px 5px 8px 0px #333;   
     text-align: center;
     border-radius: 40px;
-    background-color: var(--bg-color-rev);
     color: var(--text-color-rev);
     cursor: pointer;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 .nav-account-links:hover{
     background-color:var(--accent-color-s3);
@@ -102,7 +104,10 @@ body {
     flex-wrap: wrap;
     justify-content: space-around; 
     align-items: center;
+    position: fixed;
+    top: 8vh;
     width: 100%;
+    z-index: 999; 
     min-height: 10vh;
     white-space: nowrap;
     border-bottom: #2b2b2b 1px solid;
@@ -157,6 +162,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 35vw;
+    min-width: 285px;
     height: auto;
     min-height: 35vw;       
     background-size: cover;
@@ -174,6 +180,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 55vw;
+    min-width: 375px;
     height: auto;
     min-height: 35vw;       
     background-size: cover;
@@ -368,17 +375,11 @@ body {
 
 
 /* CSS for Footer */
-footer {
-    background: #333;
-    color: var(--accent-color-s3);
-    text-align: center;
-    padding: 1em 0;
-}
+
 #site-footer {
     background-color: #333;
     color: var(--accent-color-s3);
     padding: 20px 0;
-    font-family: Arial, sans-serif;
 }
 
 .footer-container {
@@ -398,24 +399,21 @@ footer {
 }
 
 .footer-about, .footer-links, .footer-contact, .footer-social {
-    flex: 1;
     min-width: 200px;
 }
 
 .footer-about h3 {
-    font-size: 1.5em;
     margin-bottom: 10px;
 }
 
 .footer-about p {
-    font-size: 0.9em;
-    line-height: 1.6;
+    font-size: 1em;
+
 }
 
 .footer-links h4, .footer-contact h4, .footer-social h4, .footer-social a, footer p a {
     font-size: 1em;
     margin-bottom: 10px;
-    color: var(--accent-color-s3);
 }
 
 .footer-links ul {
@@ -430,11 +428,12 @@ footer {
 .footer-links a {
     color: var(--accent-color-s3);
     text-decoration: none;
-    font-size: 0.9em;
+    transition: all 0.3s ease;
+    padding: 0.5vw;
 }
 
 .footer-links a:hover {
-    
+    background-color: var(--accent-color);
 }
 
 .footer-contact p {
@@ -471,8 +470,8 @@ footer {
 /* Copyright Text */
 .footer-about p:last-of-type {
     margin-top: 20px;
-    font-size: 0.8em;
-    color: var(--accent-color-s3);
+    font-size: 0.9em;
+    color: var(--accent-color-s2);
     text-align: center;
 }
 
@@ -485,7 +484,6 @@ footer {
 
 .cart-link {
     text-decoration: none;
-    font-weight: bold;
 }
 
 .product-grid {
@@ -508,11 +506,11 @@ footer {
 .btn {
     display: inline-block;
     margin: 10px 0;
-    background-color: var(--bg-color-rev);
     border-radius: 40px;
     color: var(--text-color);
     padding: 8px 16px;
     text-decoration: none;
+    box-shadow: #333  2px 2px 3px;
 }
 
 
